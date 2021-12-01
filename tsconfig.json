@@ -23,7 +23,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/utils/selectFields.js", "src/components/StoriesContainer.tsx", "src/components/Story.tsx", "utils/selectFields.js", "pages/components/playerInfo.js"  ],
   "exclude": [
     "node_modules"
   ]
