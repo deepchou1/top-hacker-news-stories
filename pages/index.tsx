@@ -1,13 +1,12 @@
-import styled from "styled-components";
-
-const Wrapper = styled.div`
-
-`;
+import {PageTitleHeader} from "./components/PageTitleHeader";
 
 export default function Home() {
   return (
-    <Wrapper>
-      <div>Hello, World!</div>
-    </Wrapper>
+    <>
+      <PageTitleHeader
+        title="Top Hacker News stories"
+        subTitle="10 random Top Hacker News stories in ascending order of stories score"
+      />
+    </>
   );
 }
