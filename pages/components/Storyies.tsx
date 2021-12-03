@@ -102,7 +102,7 @@ const Story: NextPage<StoriesProps> = ({
           <div className="more-info story-info">
             <p>By : {story?.by}</p>
             <p>
-              on : {new Intl.DateTimeFormat("en-US").format(story?.time * 1000)}
+              on : {new Intl.DateTimeFormat("en-US").format(story?.time * 1000)} 
             </p>
           </div>
           <h3>{story?.title}</h3>

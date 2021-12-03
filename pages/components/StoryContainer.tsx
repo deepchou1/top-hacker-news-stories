@@ -21,12 +21,15 @@ export default function StoriesContainer() {
   const [stories, setStories] = useState([]);
 
   useEffect(() => {
+    //after getting 10 sorted random Ids with getAllTopStoryIds() we run map function for ids and the pass Id to getStoryData function
     getAllTopStoryIds().then((topStoriesIds) => {
       const promises: StoryType[] = topStoriesIds.map((id: any) =>
         getStoryData(id)
       );
-      Promise.all(promises).then((dataArray) => {
-        setStories(dataArray.sort((a, b) => a.score - b.score));
+
+      //getting array of objects sorted in score's ascending order
+      Promise.all(promises).then((StoryAndUserInfo) => {
+        setStories(StoryAndUserInfo.sort((a, b) => a.score - b.score));
       });
     });
   }, []);
