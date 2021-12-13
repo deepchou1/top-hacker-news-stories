@@ -76,10 +76,7 @@ interface StoriesProps {
 }
 
 
-export const Story: NextPage<StoriesProps> = ({
-  story
-}) => {
-
+export const Stories: NextPage<StoriesProps> = ({ story }) => {
   return (
     <StoryCard key={story?.id}>
       <section className="story-details">
@@ -91,8 +88,15 @@ export const Story: NextPage<StoriesProps> = ({
           <span>Karma score: {story?.user?.karma}</span>
           <span>Score : {story?.score}</span>
         </div>
-        {(story?.url) &&
-          <a href={story.url} className="story-link" target="_blank" rel="noreferrer">Link to story</a> 
+        {story?.url && 
+          <a
+            href={story.url}
+            className="story-link"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Link to story
+          </a>
         }
       </section>
     </StoryCard>

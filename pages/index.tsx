@@ -1,4 +1,4 @@
-import StoryContainer from "../components/StoryContainer";
+import { StoriesContainer } from "../components/StoriesContainer";
 import { PageTitleHeader } from "../components/PageTitleHeader";
 
 export default function Home() {
@@ -8,7 +8,7 @@ export default function Home() {
         title="Top Hacker News stories"
         subTitle="10 random Top Hacker News stories in ascending order of stories score"
       />
-      <StoryContainer />
+      <StoriesContainer />
     </>
   );
 }

@@ -1,7 +1,7 @@
 import { NextPage } from "next";
 import styled from "styled-components";
 
-const Wrapper = styled.div`
+const HeaderTitle = styled.div`
   display: flex;
   justify-content: center;
   text-align: center;
@@ -32,11 +32,11 @@ export const PageTitleHeader: NextPage<PageTitleHeaderProps> = ({
   subTitle,
 }) => {
   return (
-    <Wrapper>
+    <HeaderTitle>
       <header className="title-container">
         <h1 className="title">{title}</h1>
         <h2 className="sub-title">{subTitle}</h2>
       </header>
-    </Wrapper>
+    </HeaderTitle>
   );
 };

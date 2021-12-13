@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
-import { getAllTopStoryIds, getStoryData } from "../services/hackerNewsApi";
-import { Story } from "./Stories";
+import { Stories } from "./Stories";
 import { StoryType } from "../models/story";
+import { getAllTopStoryIds, getStoryData } from "../services/hackerNewsApi";
+import { LoadingScreen } from "./LoadingScreen";
 import styled from "styled-components";
 
 const StorySection = styled.div`
@@ -9,7 +10,7 @@ const StorySection = styled.div`
   flex-wrap: wrap;
   gap: 24px;
   justify-content: center;
-  margin: 32px 16px;
+  margin: 32px 0;
 
   @media (max-width: 768px) {
     margin-left: 24px;
@@ -17,8 +18,9 @@ const StorySection = styled.div`
   }
 `;
 
-export default function StoriesContainer() {
+export const StoriesContainer = () => {
   const [stories, setStories] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     //after getting 10 sorted random Ids with getAllTopStoryIds() we run map function for ids and the pass Id to getStoryData function
@@ -30,15 +32,21 @@ export default function StoriesContainer() {
       //getting array of objects sorted in score's ascending order
       Promise.all(promises).then((StoryAndUserInfo) => {
         setStories(StoryAndUserInfo.sort((a, b) => a.score - b.score));
+        setLoading(false);
       });
     });
   }, []);
 
   return (
-    <StorySection>
-        {stories.map((story) => (
-          <Story key={story.id} story={story} />
-        ))}
-    </StorySection>
+    <>
+      {loading && <LoadingScreen />}
+      {!loading && (
+        <StorySection>
+          {stories.map((story) => (
+            <Stories key={story.id} story={story} />
+          ))}
+        </StorySection>
+      )}
+    </>
   );
 }
