@@ -4,6 +4,7 @@ import styled from "styled-components";
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
+  text-align: center;
 
   .title-container {
     border: solid var(--textElementSecondary);
@@ -11,7 +12,6 @@ const Wrapper = styled.div`
     color: var(--textElementSecondary);
     padding: 16px;
     width: 100%;
-    text-align: center;
   }
 
   .title {
@@ -20,13 +20,9 @@ const Wrapper = styled.div`
     text-transform: uppercase;
     letter-spacing: 0.7px;
   }
-  .sub-title {
-    display: block;
-    font-weight: 400;
-  }
 `;
 
-export interface PageTitleHeaderProps {
+interface PageTitleHeaderProps {
   title: string;
   subTitle?: string;
 }
@@ -37,10 +33,10 @@ export const PageTitleHeader: NextPage<PageTitleHeaderProps> = ({
 }) => {
   return (
     <Wrapper>
-      <div className="title-container">
-        <span className="title">{title}</span>
-        <span className="sub-title">{subTitle}</span>
-      </div>
+      <header className="title-container">
+        <h1 className="title">{title}</h1>
+        <h2 className="sub-title">{subTitle}</h2>
+      </header>
     </Wrapper>
   );
 };

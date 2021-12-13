@@ -1,8 +1,7 @@
-export const selectStorytFields = ({ id , by, url, time, title, score }) => ({
+export const selectStorytFields = ({ id , by, url, title, score }) => ({
   id,
   by,
   url,
-  time,
   title,
   score,
 });

@@ -30,11 +30,9 @@ export const getUser = async (userId) => {
 };
 
 
-export function getStoryData(storyId) {
-  return getStory(storyId).then((storyItem) => {
-    return getUser(storyItem.by).then((userItem) => {
-      storyItem.user = userItem;
-      return storyItem;
-    });
-  });
+export async function getStoryData(storyId) {
+  const storyItem = await getStory(storyId);
+  const userItem = await getUser(storyItem.by);
+  storyItem.user = userItem;
+  return storyItem;
 }

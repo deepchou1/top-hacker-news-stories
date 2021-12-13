@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { getAllTopStoryIds, getStoryData } from "../../services/hackerNewsApi";
-import Story from "./Storyies";
-import { StoryType } from "../components/models";
+import { getAllTopStoryIds, getStoryData } from "../services/hackerNewsApi";
+import { Story } from "./Stories";
+import { StoryType } from "../models/story";
 import styled from "styled-components";
 
-const Wrapper = styled.div`
+const StorySection = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 24px;
@@ -35,10 +35,10 @@ export default function StoriesContainer() {
   }, []);
 
   return (
-    <Wrapper>
-      {stories.map((story) => (
-        <Story key={story.id} story={story} />
-      ))}
-    </Wrapper>
+    <StorySection>
+        {stories.map((story) => (
+          <Story key={story.id} story={story} />
+        ))}
+    </StorySection>
   );
 }

@@ -1,5 +1,5 @@
-import StoryContainer from "./components/StoryContainer";
-import {PageTitleHeader} from "./components/PageTitleHeader";
+import StoryContainer from "../components/StoryContainer";
+import { PageTitleHeader } from "../components/PageTitleHeader";
 
 export default function Home() {
   return (
